@@ -17,7 +17,7 @@ import {
   FiClock
 } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
-import DashboardLayout from '../../Component/DashboardLayout';
+import DashboardLayout from '../../Component/Admin/AdminDashboard';
 
 const UsersPage = () => {
   // Sample user data

@@ -1,5 +1,5 @@
 import React from 'react';
-import DashboardLayout from '../../Component/DashboardLayout';
+import DashboardLayout from '../../Component/Admin/AdminDashboard';
 import { 
   LiaBookSolid, 
   LiaBookReaderSolid 

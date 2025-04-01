@@ -15,7 +15,7 @@ import {
   FiChevronRight
 } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
-import DashboardLayout from '../../Component/DashboardLayout';
+import DashboardLayout from '../../Component/Admin/AdminDashboard';
 
 const DisputeListPage = () => {
   // Dispute status filter

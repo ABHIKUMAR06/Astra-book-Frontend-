@@ -1,8 +1,11 @@
 import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
- base: "/",
+ base: "/astra",
   plugins: [
     tailwindcss(),
   ],
+  server: {
+    historyApiFallback: true,
+  }
 })

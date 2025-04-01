@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FiBook, FiSearch, FiStar, FiDownload, FiArrowRight, FiUser, FiMenu, FiX, FiLock, FiAward, FiEdit } from 'react-icons/fi';
+import { Link } from 'react-router';
 
 const HomePage = () => {
   // Featured books data
@@ -233,7 +234,7 @@ const HomePage = () => {
                 Login to AstraBook
               </h3>
               
-              <form className="space-y-6" method='post' action='/admin/'>
+              <form className="space-y-6" action={'admin'} >
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                     Email address
@@ -293,12 +294,12 @@ const HomePage = () => {
                   >
                     Sign in
                   </button>
-
                   <button
                     type="button"
                     onClick={() => {
                       document.getElementById('email').value = 'admin@astrabook.com';
                       document.getElementById('password').value = 'passwofdgrd1fg23';
+                      window.location.replace('admin')
                     }}
                     className="w-full flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >
@@ -309,12 +310,14 @@ const HomePage = () => {
                     onClick={() => {
                       document.getElementById('email').value = 'author@astrabook.com';
                       document.getElementById('password').value = 'password12dgh3';
+                      window.location.replace('author')
+
                     }}
                     className="w-full flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >
                     Author
                   </button>
-                  <button
+                  {/* <button
                     type="button"
                     onClick={() => {
                       document.getElementById('email').value = 'Reader@astrabook.com';
@@ -323,7 +326,7 @@ const HomePage = () => {
                     className="w-full flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >
                     Reader
-                  </button>
+                  </button> */}
                 </div>
               </form>
               

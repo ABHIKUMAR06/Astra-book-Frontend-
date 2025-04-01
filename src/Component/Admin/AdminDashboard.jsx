@@ -17,25 +17,27 @@ export default function DashboardLayout({ children }) {
   const location = useLocation();
 
   const navItems = [
-    { name: 'Dashboard', icon: <RiDashboardLine size={20} />, path: '/admin/' },
-    { name: 'Users', icon: <FiUsers size={20} />, path: '/admin/users list' },
-    { name: 'Books', icon: <RiBookShelfLine size={20} />, path: '/admin/books list' },
-    { name: 'Dispute', icon: <MdReport size={20} />, path: '/admin/dispute list' },
-    { name: 'Earnings', icon: <GiTakeMyMoney size={20} />, path: '/admin/earning' },
-    { name: 'Settings', icon: <FiSettings size={20} />, path: '/admin/setting' },
+    { name: 'Dashboard', icon: <RiDashboardLine size={20} />, path: '/astra/admin/' },
+    { name: 'Users', icon: <FiUsers size={20} />, path: '/astra/admin/users list' },
+    { name: 'Books', icon: <RiBookShelfLine size={20} />, path: '/astra/admin/books list' },
+    { name: 'Dispute', icon: <MdReport size={20} />, path: '/astra/admin/dispute list' },
+    { name: 'Earnings', icon: <GiTakeMyMoney size={20} />, path: '/astra/admin/earning' },
+    { name: 'Settings', icon: <FiSettings size={20} />, path: '/astra/admin/setting' },
   ];
 
-
   return (
-    <div className="flex ml-0 bg-gray-50 font-sans">
-      <div className={`
-        ${sidebarOpen ? 'w-64' : 'w-20'} 
-        bg-indigo-700 text-white transition-all duration-300 ease-in-out
-        flex flex-col
-      `}>
+    <div className="flex font-sans bg-gray-50">
+      {/* Fixed Sidebar */}
+      <div 
+        className={`
+          ${sidebarOpen ? 'w-64' : 'w-20'} 
+          bg-indigo-700 text-white transition-all duration-300 ease-in-out
+          flex flex-col fixed h-full z-50
+        `}
+      >
         <div className="p-4 flex items-center justify-between h-16 border-b border-indigo-600">
           {sidebarOpen ? (
-            <h1 className="text-xl font-bold whitespace-nowrap">BookVerse Admin</h1>
+            <h1 className="text-xl font-bold whitespace-nowrap">Astra Book</h1>
           ) : (
             <div className="w-6"></div> 
           )}
@@ -90,12 +92,19 @@ export default function DashboardLayout({ children }) {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col overflow-hidden">
-        {/* Header */}
-        <header className="bg-white shadow-sm h-16 flex items-center px-6">
+      <div 
+        className={`flex-1 flex flex-col transition-all duration-300 ease-in-out ${
+          sidebarOpen ? 'ml-64' : 'ml-20'
+        }`}
+      >
+        {/* Fixed Header */}
+        <header className="bg-white shadow-sm h-16 flex items-center px-6 fixed w-full z-40" style={{
+          width: sidebarOpen ? 'calc(100% - 16rem)' : 'calc(100% - 5rem)',
+          left: sidebarOpen ? '16rem' : '5rem',
+        }}>
           <div className="flex-1 flex items-center justify-between">
             <h2 className="text-lg font-semibold text-gray-800">
-              {location.pathname.split('/')[1] || 'Dashboard'}
+            ASTRA BOOK
             </h2>
             
             <div className="flex items-center space-x-4">
@@ -115,13 +124,13 @@ export default function DashboardLayout({ children }) {
               
               <div className="flex items-center space-x-2">
                 <img 
-                  src="https://randomuser.me/api/portraits/women/44.jpg" 
+                  src="https://randomuser.me/api/portraits/men/44.jpg" 
                   alt="User" 
                   className="w-8 h-8 rounded-full object-cover"
                 />
                 {sidebarOpen && (
                   <div className="text-sm">
-                    <p className="font-medium">Sarah Johnson</p>
+                    <p className="font-medium">Mr Archer</p>
                     <p className="text-gray-500 text-xs">Admin</p>
                   </div>
                 )}
@@ -130,8 +139,7 @@ export default function DashboardLayout({ children }) {
           </div>
         </header>
 
-        {/* Main Content Area */}
-        <main className="flex-1 overflow-y-auto p-6 bg-gray-50">
+        <main className="flex-1 overflow-y-auto p-6 bg-gray-50 mt-16">
           <div className="max-w-7xl mx-auto">
             {children}
           </div>

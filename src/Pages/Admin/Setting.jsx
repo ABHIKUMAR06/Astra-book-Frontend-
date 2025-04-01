@@ -16,7 +16,7 @@ import {
   FiLogOut
 } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
-import DashboardLayout from '../../Component/DashboardLayout';
+import DashboardLayout from '../../Component/Admin/AdminDashboard';
 
 // Lazy load the map component
 const LoginLocationMap = lazy(() => import('../../Component/Map/LoginLocationMap'));
